@@ -19,7 +19,7 @@
 }
 
 body {
-  background-color: #334c50;
+  background-color:white;
   min-height: 150vh;
   position: relative;
 }
@@ -29,13 +29,18 @@ footer {
   bottom: 0;
   width: 100%;
   color: white;
-  background-color: gray;
+  background-color: black;
   margin: auto;
   padding: 1rem;
 }
 
 footer a {
   color: rgb(5, 32, 119);
+}
+
+footer a:hover
+{
+color:white;
 }
 
 a.nav-link {
