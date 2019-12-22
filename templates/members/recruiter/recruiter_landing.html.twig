@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid">
+    
+<div class="row">
+    <div class="card-deck">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Poster une nouvelle offre</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="{{ path('post') }}" class="btn btn-primary">Poster une offre d'emploi</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Consultez les profils de candidats</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="{{ path('candidates') }}" class="btn btn-primary">Consulter les candidatures</a>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Editer son profil</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="{{ path('editProfile') }}" class="btn btn-primary">Gerer son profil</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Gestion des offres publiées</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="{{ path('offers') }}" class="btn btn-primary">Editer ou supprimer des offres</a>
+        </div>
+    </div>
+</div>
+</div>
+
+
+{% endblock %}

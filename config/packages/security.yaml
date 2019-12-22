@@ -1,0 +1,77 @@
+security:
+    encoders:
+        App\Entity\User:
+            algorithm: auto
+        App\Entity\Recruiter:
+            algorithm: auto
+
+    providers:
+        user_users:
+            entity:
+                class: App\Entity\User
+                property: email
+        recruiter_users:
+            entity:
+                class: App\Entity\Recruiter
+                property: email
+    firewalls:
+        dev:
+            anonymous: ~
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        recruiter:
+            context: secured_context
+            pattern: /recruiter$
+            provider: recruiter_users
+            anonymous: true
+            guard:
+                authenticators:
+                    - App\Security\RecruiterLoginAuthenticator
+            remember_me:
+                secret:   '%kernel.secret%'
+                lifetime: 604800 # 1 week in seconds
+                token_provider: 'Symfony\Bridge\Doctrine\Security\RememberMe\DoctrineTokenProvider'
+                path:     /
+
+        main:
+            context: secured_context
+            pattern: ^/
+            provider: user_users
+            anonymous: true
+            form_login:
+                login_path: login_user
+                check_path: login_user
+                csrf_parameter: _csrf_security_token
+                csrf_token_id: a_private_string
+            logout:
+                path: /logout
+                target: home
+            guard:
+                authenticators:
+                    - App\Security\UserLoginAuthenticator
+            remember_me:
+                secret:   '%kernel.secret%'
+                lifetime: 604800 # 1 week in seconds
+                token_provider: 'Symfony\Bridge\Doctrine\Security\RememberMe\DoctrineTokenProvider'
+                path:     /
+
+                # where to redirect after logout
+                # target: app_any_route
+
+            # activate different ways to authenticate
+            # https://symfony.com/doc/current/security.html#firewalls-authentication
+
+            # https://symfony.com/doc/current/security/impersonating_user.html
+            # switch_user: true
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+
+    access_control:
+        - { path: ^/admin$, roles: ROLE_ADMIN }
+        - { path: ^/user$, roles: ROLE_USER }
+        - { path: ^/recruiter$, roles: ROLE_RECRUITER }
+        - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/visitor$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+

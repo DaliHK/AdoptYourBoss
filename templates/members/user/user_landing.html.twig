@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+  <div style="background-image: url('{{ asset('images/image3.svg') }}')> 
+
+
+<div class="card-deck">
+    <div class="card bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+            <div class="text-center">
+                <h5 class="card-title">INDIQUEZ COMPETENCES</h5>
+                <a href="{{ path('user_skill', { 'id': id }) }}" class="btn btn-primary">Cliquez ici!</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="card bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+           <div class="text-center">
+                <h5 class="card-title">EDITEZ VOTRE PROFIL</h5>
+                <a href="{{ path('user_profil', { 'id': id }) }}" class="btn btn-primary">Cliquez ici!</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card-deck">
+    <div class="card bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+            <div class="text-center">
+                <h5 class="card-title">DEPOSEZ VOTRE CV</h5>
+                <a href="{{ path('depot_cv', { 'id': id }) }}" class="btn btn-primary">Cliquez ici!</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="card bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+            <div class="text-center">
+                <h5 class="card-title">OFFRE QUI MATCH !</h5>
+                <a href="{{ path('user_match', { 'id': id }) }}" class="btn btn-primary">Cliquer ici!</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+
+.card-deck{
+   margin-left: 20%;
+}
+body{
+   position: relative;
+   background-image: url("{{ asset('images/image3.svg') }}");
+   background-repeat:no-repeat;
+   width: 100%;
+   background-position: bottom;
+}
+
+</style>
+
+
+{% endblock %}

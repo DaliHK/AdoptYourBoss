@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="container">
+<div background-image: url('{{ asset('images/image2.svg') }}')> </div>
+
+<div class="row">
+<div class="card-desk"> 
+ <div id="col-lg-5">
+            <div class="card bg-light text-dark mb-3" >
+                <div class="card-body text-center" >
+                    <a href="{{ path('register_user') }}"><h2 class="card-text"> Candidat</h2></a>
+                </div>
+            </div>
+            <div id="col-lg-5">
+            <div class="card bg-light text-dark mb-3">
+                <div class="card-body text-center">
+                    <a href="{{ path('register_recruiter') }}"><h2 class="card-text"> Recruteur</h2></a>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+</div>
+</div>
+</div>
+</div>
+
+<style>
+
+body{
+    position: relative;
+    background-image: url("{{ asset('images/image2.svg') }}");
+    background-repeat:no-repeat;
+    width: 100%;
+    background-position: center bottom; 
+}
+
+</style>
+{% endblock %}

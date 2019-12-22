@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ form(form) }}<a href="{{ path('recruiter_landing') }}" type="button" class="btn btn-primary">Sauver et quitter</a>
+    {% for lastskill in lastskills %}
+       <div>{{ lastskill.skill }}</div>
+    {% endfor %}
+{% endblock %}

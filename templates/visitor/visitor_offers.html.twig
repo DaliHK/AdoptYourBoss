@@ -1,0 +1,45 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ label }} alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    {% for offer in joboffers %}
+
+        <div class="offset-lg-3 col-lg-7">
+            <div class="card mb-3">
+                <h3 class="card-header">
+                    {{ offer.title}}
+                </h3>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        {{ offer.description }}
+                    </h5>
+                    <h6 class="card-subtitle text-muted">
+                        Date de publication
+
+                        {{ offer.publicationDate | date('d/m/y')}}
+                    </h6>
+                </div>
+
+                <div class="card-body">
+                    <a href="{{ path('offerdetails', { 'id' : offer.id }) }}" class="card-link">Cliquez pour consulter</a>
+                </div>
+                <div class="card-footer text-muted">
+                    2 days ago
+                </div>
+            </div>
+        </div>
+
+
+    {% endfor %}
+{% endblock %}

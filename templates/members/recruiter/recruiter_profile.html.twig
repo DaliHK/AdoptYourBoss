@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editer mon profil recruteur
+{% endblock %}
+
+{% block body %}
+
+<div class="offset-lg-3 col-lg-7">
+    <div class="card mb-3">
+        <div class="card-body">
+            <h1 class="card-title">Bienvenue sur votre profil
+            </h1>
+        </div>
+        {{ form_start(form)}}
+        {{ form_rest(form) }}
+        {{ form_end(form)}}
+    </div>
+</div>
+
+
+               <br> <br> 
+         <br> <br> 
+         <br> <br> 
+         <br> <br> 
+<style>
+ .card{
+    padding: 5%;
+}
+
+</style>
+{% endblock %}

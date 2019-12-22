@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ label }} alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    <h5>Vous êtes sur le point d'envoyer votre candidature à l'offre
+        {{ offer. title }}</h5>
+
+    {{ form_start(form)}}
+    {{ form_widget(form)}}
+    {{ form_end(form)}}
+
+{% endblock %}

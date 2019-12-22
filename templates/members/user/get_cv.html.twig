@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="container">
+<div class="card-deck">
+
+    <div class="card bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+        <h5 class="card-title"> COMPETENCES</h5>
+            <a href="{{ path('user_skill', { 'id': id }) }}" class="btn btn-primary"> Cliquez ici pour renseigner vos compétences </a>
+        </div>
+    </div>
+
+    <div class="card bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+        <h5 class="card-title"> EDITION DU PROFIL</h5>
+            <a href="{{ path('user_profil', { 'id': id }) }}" class="btn btn-primary">  Cliquez ici pour modifier votre profil </a>
+        </div>
+    </div>
+
+    <div class="card bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+        <h5 class="card-title"> OFFRE</h5>
+            <a href="{{ path('user_match', { 'id': id }) }}" class="btn btn-primary"> Cliquez ici pour voir vos match</a>
+        </div>
+    </div>
+</div>
+</div>
+
+ <div class="offset-lg-3 col-lg-5">
+    <div class="card bg-light mb-3" style="max-width: 60rem;">
+        <div class="card-body">
+
+        <h3 class="card-title">Télécharger votre CV </h3>
+            {{ form_start(formcv) }}
+            {{ form_rest(formcv) }}
+            
+        {% for message in app.flashes('info') %}
+            <div class="alert alert-success">
+            {{ message }}
+            </div>
+        {% endfor %}
+        <input type="hidden" name="token" value="{{ csrf_token('upload') }}" />
+            {{ form_end(formcv) }}
+        </div>
+    </div>
+
+    
+{% endblock %}

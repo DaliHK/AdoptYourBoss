@@ -1,0 +1,4 @@
+logout_user:
+  path: /logout
+logout_recruiter:
+    path: /logout

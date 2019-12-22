@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="card-deck">
+    <div class="card bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">EDITEZ VOTRE PROFIL</h5>
+            <a href="{{ path('user_profil', { 'id': id }) }}" class="btn btn-primary">Cliquer ici!</a>
+        </div>
+    </div>
+
+    <div class="card bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">DEPOSEZ VOTRE CV</h5>
+            <a href="{{ path('depot_cv', { 'id': id }) }}" class="btn btn-primary">Cliquer ici!</a>
+        </div>
+    </div>
+
+    <div class="card bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">OFFRE QUI MATCH !</h5>
+            <a href="{{ path('user_match', { 'id': id }) }}" class="btn btn-primary">Cliquer ici!</a>
+        </div>
+    </div>
+</div>    
+
+<div class="offset-lg-3 col-lg-5">
+    <div class="card bg-light mb-3" style="max-width: 60rem;">
+        <div class="card-body">
+            <h4 class="card-title"> Veuillez renseigner vos competences </h4>               
+            {{ form_start(formskill) }}
+            {{ form_widget(formskill) }}
+            {{ form_end(formskill) }}
+            {% for lastskill in lastskills %}
+            <div>
+            <ul>
+                <li>
+            {{ lastskill.skill }}
+                </li>
+            </ul>
+            </div>
+            {%  endfor %}         
+        </div>
+    </div>
+</div>
+
+<style>
+.card-deck{
+    margin-left: 10%;
+}
+</style>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="example-wrapper">
+        <div class="form-group">
+            {% for recruiter in recruiters %}
+            <a href="{{ path('admin_recruiter_detail', { 'id': recruiter.id}) }}">
+                <form class="" action="{{ path('admin_recruiter_delete', { 'id': recruiter.id }) }}">
+                    <table class="table table-hover">
+                        <tbody>
+                        <tr class="table-success">
+                            <th scope="col">Nom: {{ recruiter.company }}</th>
+                            <th scope="col">Email: {{ recruiter.location }}</th>
+                            <th scope="col">
+                                <label>
+                                    <input class="form-check-input" type="checkbox" name="id" value="{{ recruiter.id }}">
+                                </label>
+                                <label class="form-check-label" for="{{recruiter.id}}">Supprimer le recruteur</label>
+                            </th>
+                        </tr>
+                        </tbody>
+                    </table>
+                    {% endfor %}
+                    <button type="submit" class="btn btn-lg btn-primary" name="save" value="check">supprimer</button>
+                </form>
+            </a>
+        </div>
+    </div>
+{% endblock %}

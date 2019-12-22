@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+        <div class="offset-lg-3 col-lg-7">
+
+    <div class="card bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+             <div class="text-center">
+            <h5 class="card-title">Gestion utilisateur </h5>
+            <div>
+                <p>
+                    ID: {{ user.id }}
+                </p>
+            </div>
+            <div>
+                <p>
+                    Nom: {{ user.fname }}
+                </p>
+            </div>
+            <div>
+                <p>
+                    Prénom: {{ user.lname }}
+                </p>
+            </div>
+            <div>
+                <p>
+                    Email: {{ user.email }}
+                </p>
+            </div>
+            <div>
+                <p>
+                    Téléphone: {{ user.phone }}
+                </p>
+            </div>
+            <div>
+                <p>
+                    Adresse: {{ user.address }}
+                </p>
+            </div>
+            <div>
+                <p>
+                    Newsletter: {{ user.newsletter }}
+                </p>
+            </div>
+            <div>
+                <p>
+                    Prémium: {{ user.premium }}
+                </p>
+            </div>
+            <div>
+                <p>
+                    Avatar: {{ user.avatar }}
+                </p>
+            </div>
+        </div>
+
+        <div>
+            <a href="{{ path('admin_user_cv', { 'id': user.id }) }}"> Consulter son CV</a>
+        </div>
+        <div>
+            <a href="{{ path('admin_user_applications', { 'id': user.id }) }}">Consulter ses candidatures</a>
+        </div>
+</div>
+</div>
+</div>
+</div>
+<br><br><br><br><br>
+
+{% endblock %}

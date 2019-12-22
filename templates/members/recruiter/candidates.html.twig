@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Candidatures en cours
+{% endblock %}
+
+{% block body %}
+    <div class="offset-lg-3 col-lg-7">
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5>Voici les candidatures en cours sur vos offres</h5>
+
+
+                {% for user in users %}
+                    {% for appli in candidatures %}
+
+                        Offre N ° :
+                        {{ appli.id }}<br>
+
+                        Candidat :<br>
+                        {{ user.fname }}
+                        {{ user.lname }}
+
+
+                        <a class="btn btn-primary" href="{{path('visitoroffers', { 'id':id })}}">Retrouver le détail de l'offre</a>
+
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

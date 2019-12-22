@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="example-wrapper">
+        <div class="form-group float-md-left">
+            <div>
+                <p>
+                    ID: {{ recruiter.id }}
+                </p>
+            </div>
+            <div>
+                <p>
+                    Entreprise: {{ recruiter.company }}
+                </p>
+            </div>
+            <div>
+                <p>
+                    Lieu: {{ recruiter.location }}
+                </p>
+            </div>
+            <div>
+                <p>
+                    Email: {{ recruiter.email }}
+                </p>
+            </div>
+        <div>
+            <a href="{{ path('admin_recruiter_offers', { 'id': recruiter.id }) }}"> Consulter ses offres</a>
+        </div>
+    </div>
+{% endblock %}

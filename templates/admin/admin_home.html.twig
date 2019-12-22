@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="container">
+
+<div class="card-deck">
+    <div class="card bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+            <div class="text-center">
+                <h5 class="card-title">  <a href="{{ path('admin_users') }}"</a> Candidats</h5>
+               
+            </div>
+        </div>
+    </div>
+
+    <div class="card bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+             <div class="text-center">
+            <h5 class="card-title">Recruteurs
+           <a href="{{ path('admin_recruiters') }}"></a> </h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="card bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+             <div class="text-center">
+                 <h5 class="card-title">Newsletter     
+                <a href="{{ path('admin_newsletters') }}"></a>  </h5>        
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+<div class="card-deck">
+    <div class="card bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">INDIQUEZ COMPETENCES</h5>
+            <a href="{{ path('user_skill', { 'id': id }) }}" class="btn btn-primary">cliquer ici!</a>
+        </div>
+    </div>
+
+    <div class="card bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">EDITEZ VOTRE PROFIL</h5>
+                <a href="{{ path('user_profil', { 'id': id }) }}" class="btn btn-primary">cliquer ici!</a>
+        </div>
+    </div>
+
+    <div class="card bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">DEPOSEZ VOTRE CV</h5>
+            <a href="{{ path('depot_cv', { 'id': id }) }}" class="btn btn-primary">cliquer ici!</a>
+        </div>
+    </div>
+</div>
+
+<div class="offset-lg-3 col-lg-7">
+    <br>
+    <h3 style="color:white"><i>Il y a {{ offerlength }} offres qui correspondent à vos compétences</i></h3>
+    <br>
+</div>
+
+    {% for offer in matchoffer %}
+<div class="offset-lg-3 col-lg-7">
+    <div class="card mb-3">
+        <h3 class="card-header"> {{ offer.title}} </h3>
+            <div class="card-body">
+                <h6 class="card-subtitle text-muted"> Date de publication {{ offer.publicationDate | date('d/m/y')}} </h6>
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    {{ offer.description}}</p>
+                <h6 class="card-subtitle text-muted">
+                    Type de contrat:
+                    {{ offer.contract }}</h6>
+                <br>
+                <h6 class="card-subtitle text-muted">
+                    Date debut
+                    {{ offer.startDate | date('d/m/y') }}
+                    et fin
+                    {{ offer.endDate | date('d/m/y') }} du contrat</h6>
+            </div>
+           <br>
+           <a href="#" class="btn btn-primary">POSTULER</a>
+    </div>
+</div>
+    {% endfor %}
+    <br> <br> <br>
+    {% endblock %}

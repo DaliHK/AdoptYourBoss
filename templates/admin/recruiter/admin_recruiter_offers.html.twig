@@ -1,0 +1,17 @@
+{%  extends 'base.html.twig' %}
+
+{% block body %}
+    {% for offer in joboffers %}
+        <div class="example-wrapper">
+            <div>
+                <div>
+                    <p>{{ offer.title }}</p>
+                </div>
+                <div>
+                    <p>{{ offer.description }}</p>
+                </div>
+                <a href="{{ path('admin_recruiter_offer_delete', { 'id': offer.id }) }}" type="button" class="btn btn-primary">Supprimer l'offre</a>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

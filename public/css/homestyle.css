@@ -1,0 +1,135 @@
+@media(min-width: 400px) {
+   .carousel-caption {
+        text-align: left;
+      
+    } 
+    .red {
+        position: absolute;
+        left: 43%;
+        top: -10%;
+        bottom: 0;
+        padding: 90px 0 20px 65%;
+        margin-left: -175px;
+        width: 10%;
+    }
+    .red-content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: right;
+        width: 10%;
+        float: left;
+        height: 100%;
+        color: #fff;
+        margin-right: 15px;
+    }            
+    #a_droite {
+        position: absolute;
+        top: -22%;
+        left: 30%;
+        width: 10%;
+    }
+    #a_droite1 {
+        position: absolute;
+        top: 63%;
+        left: 35%;
+        width: 15%;
+    }
+    #a_droite2 {
+        position: absolute;
+        top: -16%;
+        left: 25%;
+        width: 18%;
+    }
+    .red a{
+        width:100%;
+        font-size:0.5em;
+    }
+}
+@media(min-width: 800px) {
+    container-fluid {
+    display: flex;
+    align-items: flex-start;
+    width: 80%;
+    margin-left: 15%;
+}
+    .red {
+        margin-left: 0;
+        font-size: 2em;
+        width: 30%;
+    }
+    .red-content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 10%;
+        float: left;
+        height: 100%;
+        color: #fff;
+        margin-right: 15px;
+    } 
+
+    #a_droite {
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        font-size: 1em;
+    }
+    #a_droite1 {
+        position: absolute;
+        top: 20%;
+    }
+    #a_droite2 {
+        position: absolute;
+        top: 0;
+    }
+}
+@media (min-width: 1200px) 
+{
+.red {
+    width: 90%;
+    margin-left: -585px;
+}
+}
+.red-content {
+    position:relative;
+    width: auto;
+    height: 300px;
+    color: #fff;
+}
+div.container-fluid {
+    display: flex;
+    align-items: flex-start;
+    width: 80%;
+    margin-left: 15%;
+} 
+#a_droite {
+    top: 8%;
+    left: 100%;
+    width: 40%;
+    font-size: 1em;
+}
+#a_droite1 {    
+    top: 63%;
+    left: 63%;
+    width: 35%;
+    font-size: 1em;
+}
+#a_droite2 {
+    top: 10%;
+    left: 45%;
+    width: 36%;
+    font-size: 1.em;
+}
+#a_droite2 btn{
+    width: 15%;
+}
+#a_droite btn{
+    width: 25%;
+}
+.btn{
+    background-color: #091cc7 !important;
+    border:none;
+    }
+
+    

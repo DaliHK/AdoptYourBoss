@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}AdoptYourBoss | Espace recruteur
+			{% endblock %}
+		</title>
+		{% block stylesheets %}
+
+			<link href="/assets/css/bootstrap.min.css" rel="stylesheet"/>
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/flatly/bootstrap.min.css"/>
+			<link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+			<link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}">
+			<link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+		{% endblock %}
+
+	</head>
+
+	{% block nav %}
+
+		<nav class="navbar navbar-expand-lg  bg-primary sticky-top mb-5">
+			<div class="">
+				<button class="navbar-toggler collapsed " data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false">
+					<span class="navbar-toggler-icon"></span>
+					<span class="sr-only"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			​
+			<img class="logo" src="{{ asset('images/Logo.png') }}" style="position:relative">
+			<div class="collapse navbar-collapse" id="navbarColor01" style="padding-top: 40px;">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('home') }}">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('visitoroffers') }}">Offres d'emploi</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('home') }}">Actualités</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('home') }}">Chat</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('home') }}">Newsletter</a>
+					</li>
+				</ul>
+				<ul class="navbar-nav ml-auto">
+					{% if is_granted('ROLE_ADMIN') %}
+						<li class="nav-item {% if mainNavAdmin is defined %}active{% endif %}">
+							<a class="nav-link" href="{{path('admin_home')}}">Espace admin</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{{path('logout')}}">Logout</a>
+						</li>
+					{% else %}
+
+						{% if is_granted('ROLE_USER') %}
+							<li class="nav-item {% if mainNavLogin is defined %}active{% endif %}">
+								<a class="nav-link" href="{{ path('user') }}">Espace Candidat</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{path('logout')}}">Log out</a>
+							</li>
+						{% else %}
+
+							{% if is_granted('ROLE_RECRUITER') %}
+								<li class="nav-item {% if mainNavLogin is defined %}active{% endif %}">
+									<a class="nav-link" href="{{ path('recruiter_landing') }}">Espace Recruteur</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="{{path('logout')}}">Log out</a>
+								</li>
+
+							{% else %}
+								<li class="nav-item {% if mainNavLogin is defined %}active{% endif %}">
+									<a class="nav-link" href="{{path('login')}}">Connexion</a>
+								</li>
+								<li class="nav-item {% if mainNavRegistration is defined %}active{% endif %}">
+									<a class="nav-link" href="{{path('register')}}">Inscription</a>
+								</li>
+							{% endif %}
+						{% endif %}
+					{% endif %}
+				</ul>
+			</div>
+		</nav>
+
+	{% endblock %}
+
+	{% for message in app.flashes('success') %}
+		<div class="alert alert-success">
+			{{ message }}
+		</div>
+
+	{% endfor %}
+
+	{% for message in app.flashes('alert') %}
+		<div class="alert alert-alert">
+			{{ message }}
+		</div>
+	{% endfor %}
+
+	{% for message in app.flashes('danger') %}
+		<div class="alert alert-danger">
+			{{ message }}
+		</div>
+	{% endfor %}
+
+	{% block body %}
+		<body></body>
+	{% endblock %}
+
+	{% block footer %}
+
+
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+		<footer class="footer">
+
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 py-1">
+						<div class="mb-0 flex-center">
+							<a href="https://www.facebook.com/bewebERN/">
+								<i class="fa fa-facebook" style="font-size:2em" ;></i>
+							</a>
+							<a href="https://twitter.com/BeWeb_?s=09">
+								<i class="fa fa-twitter" style="font-size:2em"></i>
+							</a>
+							<a href="https://www.linkedin.com/company/11013256">
+								<i class="fa fa-linkedin" style="font-size:2em"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="footer-copyright text-center py-1">© 2019 Copyright:
+				<br>
+				<a href="http://fabrique-beweb.com/">
+					fabrique-beweb.com</a>
+			</div>
+
+		</footer>
+	{% endblock %}
+	{% block javascripts %}{% endblock %}
+</html></body></html>
+

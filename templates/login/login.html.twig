@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="container">
+
+<div class="row">
+<div class="card-desk"> 
+ <div id="col-lg-5">
+            <div class="card bg-light text-dark mb-3 " style="max-width: 17rem;">
+                <div class="card-body text-center" >
+                    <a href="{{ path('login_user') }}"><h2 class="card-text">Login Candidat</h2></a>
+                </div>
+            </div>
+            <div id="col-lg-5">
+            <div class="card bg-light text-dark mb-3 " style="max-width: 17rem;">
+                <div class="card-body text-center">
+                    <a href="{{ path('login_recruiter') }}"><h2 class="card-text">Login Recruteur</h2></a>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+</div>
+</div>
+</div>
+</div>
+
+<style>
+            .container{
+                margin: 0 auto;
+            }
+            body{
+                position: relative;
+                background-image: url('{{ asset('images/image1.svg') }}'); width: 95%; height:95%;
+                background-repeat:no-repeat;
+                width: 100%;
+                background-position: center; 
+
+            }
+</style>
+
+{% endblock %}

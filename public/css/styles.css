@@ -1,0 +1,93 @@
+@font-face {
+  font-family: "FontAwesome";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.1.0")
+      format("embedded-opentype"),
+    url("../fonts/fontawesome-webfont.woff?v=4.1.0") format("woff"),
+    url("../fonts/fontawesome-webfont.ttf?v=4.1.0") format("truetype"),
+    url("../fonts/fontawesome-webfont.svg?v=4.1.0#fontawesomeregular")
+      format("svg");
+}
+
+.card h1 h2 {
+  font-family: "Roboto-Medium", sans-serif !important;
+}
+.example-wrapper code {
+  background: rgb(224, 219, 219);
+  padding: 2px 6px;
+}
+
+body {
+  background-color: #334c50;
+  min-height: 150vh;
+  position: relative;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  background-color: gray;
+  margin: auto;
+  padding: 1rem;
+}
+
+footer a {
+  color: rgb(5, 32, 119);
+}
+
+a.nav-link {
+  color: rgb(182, 182, 174);
+  font-family: "Roboto-Medium", sans-serif !important;
+}
+.nav-item > a:hover,
+.nav > li > a:focus {
+  color: white;
+}
+
+.nav-profile-img {
+  display: flex;
+  justify-content: flex-start;
+  padding-right: 60px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.card-link {
+  color: #373584;
+}
+.card-body > a:hover,
+.card-link > a:focus {
+  color: #5696a0;
+  text-decoration: none;
+}
+.card-deck {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+.btn {
+  background-color: #ae5d49;
+  border: none;
+}
+.navbar {
+  background: linear-gradient(120deg, #262c3d 6.54%, #373584 92.95%);
+}
+.logo {
+  display: flex;
+  align-items: left;
+  width: 200px;
+}
+.navbar-toggler {
+  display: block;
+  float: left;
+  border: 1px solid;
+  border-color: white;
+}
+.navbar-toggler-icon {
+  border: 1px solid;
+  color: white;
+}

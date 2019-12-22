@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="example-wrapper">
+            {%  for cv in cvs %}
+        <div>
+            {{ cv.id }}
+            {{ cv.name }}
+        </div>
+            <div>
+                <a href="{{ path('admin_delete_cv', { 'id': cv.id }) }}">Supprimé le CV</a>
+            </div>
+            {% endfor %}
+    </div>
+{% endblock %}
