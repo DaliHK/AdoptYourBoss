@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\admin;
 
 use App\Entity\JobOffer;
 use App\Entity\Recruiter;
@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class AdminRecruiterController extends AbstractController
+class RecruiterController extends AbstractController
 {
     /**
      * @route("/admin/recruiters", name="admin_recruiters")
@@ -22,12 +22,14 @@ class AdminRecruiterController extends AbstractController
         public function recruiters(OfferRepository $repo)
     {
         $recruiters = $repo->findAll();
+      
 
         if(!$recruiters)
         {
             $this->addFlash("danger", "pas de recruteurs!");
             return $this->redirectToRoute('admin_home');
         }
+
         return $this->render('admin/recruiter/admin_recruiters.html.twig', [
             'recruiters' => $recruiters
         ]);

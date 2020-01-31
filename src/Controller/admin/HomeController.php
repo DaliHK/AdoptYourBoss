@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\admin;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-class AdminHomeController extends AbstractController
+class HomeController extends AbstractController
 {
     /**
      * @Route("/admin", name="admin_home")

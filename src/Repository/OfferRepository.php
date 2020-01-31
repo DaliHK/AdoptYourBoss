@@ -36,15 +36,14 @@ class OfferRepository extends ServiceEntityRepository
     }
     */
 
-    /*
-    public function findOneBySomeField($value): ?Recruiter
+    public function findOneByRecruiter($recruiter): ?Recruiter
     {
-        return $this->createQueryBuilder('r')
-            ->andWhere('r.exampleField = :val')
-            ->setParameter('val', $value)
+        return $this->createQueryBuilder('q')
+            ->andWhere('q.recruiter = :id')
+            ->setParameter('id', $recruiter)
             ->getQuery()
             ->getOneOrNullResult()
         ;
     }
-    */
+    
 }

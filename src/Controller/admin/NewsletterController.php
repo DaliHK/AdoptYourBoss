@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\admin;
 
 use App\Entity\User;
 use App\Repository\UserRepository;
@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class AdminNewsletterController extends AbstractController
+class NewsletterController extends AbstractController
 {
     /**
      * @Route("/admin/newsletters", name="admin_newsletters")

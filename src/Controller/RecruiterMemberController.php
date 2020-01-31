@@ -43,10 +43,16 @@ class RecruiterMemberController extends AbstractController
      */
     public function offersDisplay(JobOfferRepository $repo)
     {
-        $jobOffer = $repo->findAll();
-        return $this->render('/members/recruiter/offers_post.html.twig', [
+
+        $recruiter = $this->getUser();
+        $id = $recruiter->getId();
+
+        $jobOffer = $repo->findOneByRecruiter(array("id" => $id));
+
+        return $this->render('/members/recruiter/posted_offers.html.twig', [
             'jobOffer' => $jobOffer
         ]);
+
     }
 
     /**

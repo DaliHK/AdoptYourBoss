@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\admin;
 
 use App\Entity\Application;
 use App\Entity\Cv;
@@ -17,7 +17,7 @@ use App\Entity\User;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-class AdminUserController extends AbstractController
+class UserController extends AbstractController
 {
     private $jobOffer;
 

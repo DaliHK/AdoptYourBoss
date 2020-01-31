@@ -21,8 +21,9 @@ class HomeController extends AbstractController
     public function visitorOffers(JobOfferRepository $repo)
     {
         $jobOffer = $repo->findAll();
+
         return $this->render('/visitor/visitor_offers.html.twig', [
-            'joboffers' => $jobOffer
+            'joboffers' => $jobOffer,
         ]);
     }
 
