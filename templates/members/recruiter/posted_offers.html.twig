@@ -1,45 +1,62 @@
 {% extends 'base.html.twig' %}
 
-
 {% block body %}
 
-	{% for offer in jobOffer %}
+	{% if not jobOffer %}
 
 		<div class="offset-lg-3 col-lg-7">
 			<div class="card mb-3">
-				<h3 class="card-header">
-					{{ offer.title}}
-				</h3>
 				<div class="card-body">
-					<h6 class="card-subtitle text-muted">
-						Date de publication
-						{{ offer.publicationDate | date('d/m/y')}}</h6>
-				</div>
-
-				<div class="card-body">
-					<p class="card-text">
-						{{ offer.description}}</p>
-					<h6 class="card-subtitle text-muted">
-
-						Type de contrat:
-						{{ offer.contract }}</h6>
-					<br>
-					<h6 class="card-subtitle text-muted">
-						Date debut
-						{{ offer.startDate | date('d/m/y') }}
-						et fin
-						{{ offer.endDate | date('d/m/y') }}
-						du contrat</h6>
-					<br>
-					<div class="card-subtitle text-muted">
-						<a href="{{ path('edit', { 'id' : offer.id }) }}" class="btn btn-primary">
-							Editer cette offre</a>
-						<a href="{{ path('delete', { 'id' : offer.id }) }}" class="btn btn-primary">
-							Supprimer cette offre</a>
-					</div>
+					<p class="card-text"></p>
+					<p>Vous n'avez posté aucune offre d'emploi</br>
+						<a href="{{ path('post') }}">postez votre première offre !</a>
+					</p>
 				</div>
 			</div>
 		</div>
 
-	{% endfor %}
+	{% else %}
+
+		{% for offer in jobOffer %}
+
+			<div class="offset-lg-3 col-lg-7">
+				<div class="card mb-3">
+					<h3 class="card-header">
+						{{ offer.title}}
+					</h3>
+					<div class="card-body">
+						<h6 class="card-subtitle text-muted">
+							Date de publication
+							{{ offer.publicationDate | date('d/m/y')}}</h6>
+					</div>
+
+					<div class="card-body">
+						<p class="card-text">
+							{{ offer.description}}</p>
+						<h6 class="card-subtitle text-muted">
+
+							Type de contrat:
+							{{ offer.contract }}</h6>
+						<br>
+						<h6 class="card-subtitle text-muted">
+							Date debut
+							{{ offer.startDate | date('d/m/y') }}
+							et fin
+							{{ offer.endDate | date('d/m/y') }}
+							du contrat</h6>
+						<br>
+						<div class="card-subtitle text-muted">
+							<a href="{{ path('edit', { 'id' : offer.id }) }}" class="btn btn-primary">
+								Editer cette offre</a>
+							<a href="{{ path('delete', { 'id' : offer.id }) }}" class="btn btn-primary">
+								Supprimer cette offre</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		{% endfor %}
+
+	{% endif %}
+
 {% endblock %}

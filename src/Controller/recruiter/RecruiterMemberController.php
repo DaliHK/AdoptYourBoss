@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\recruiter;
 
 use Exception;
 use App\Entity\JobOffer;
@@ -44,15 +44,15 @@ class RecruiterMemberController extends AbstractController
     public function offersDisplay(JobOfferRepository $repo)
     {
 
+
         $recruiter = $this->getUser();
         $id = $recruiter->getId();
 
-        $jobOffer = $repo->findOneByRecruiter(array("id" => $id));
+        $jobOffer = $repo->findByRecruiter($id);
 
         return $this->render('/members/recruiter/posted_offers.html.twig', [
             'jobOffer' => $jobOffer
         ]);
-
     }
 
     /**
@@ -103,7 +103,7 @@ class RecruiterMemberController extends AbstractController
             $manager->persist($add);
             $manager->flush();
 
-            $this->addFlash('success','Votre annonce a bien été publiée');
+            $this->addFlash('success', 'Votre annonce a bien été publiée');
             return $this->redirectToRoute('offer_skill', [
                 'id' => $add->getId()
             ]);
@@ -144,9 +144,9 @@ class RecruiterMemberController extends AbstractController
             );
             return $this->redirectToRoute('offers');
         }
-            return $this->render('/members/recruiter/edit.html.twig', [
-                'form' => $form->createView()
-            ]);
+        return $this->render('/members/recruiter/edit.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
 
     /**

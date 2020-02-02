@@ -35,15 +35,5 @@ class OfferRepository extends ServiceEntityRepository
         ;
     }
     */
-
-    public function findOneByRecruiter($recruiter): ?Recruiter
-    {
-        return $this->createQueryBuilder('q')
-            ->andWhere('q.recruiter = :id')
-            ->setParameter('id', $recruiter)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
     
 }

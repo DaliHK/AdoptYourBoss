@@ -19,32 +19,32 @@ class JobOfferRepository extends ServiceEntityRepository
         parent::__construct($registry, JobOffer::class);
     }
 
-    // /**
-    //  * @return JobOffer[] Returns an array of JobOffer objects
-    //  */
-    /*
-    public function findByExampleField($value)
+     /**
+      * @return JobOffer[] Returns an array of JobOffer objects
+      */
+    public function findByRecruiter($recruiter)
     {
         return $this->createQueryBuilder('j')
-            ->andWhere('j.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('j.id', 'ASC')
-            ->setMaxResults(10)
+            ->andWhere('j.recruiter = :id')
+            ->setParameter('id', $recruiter)
+            ->orderBy('j.title', 'ASC')
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+    
 
-    /*
-    public function findOneBySomeField($value): ?JobOffer
-    {
-        return $this->createQueryBuilder('j')
-            ->andWhere('j.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
+    // public function findByRecruiter($recruiter)
+    // {
+    //         $qb = $this->createQueryBuilder('q')
+    //         ->select('q')
+    //         ->leftJoin('q.recruiter', 'r') 
+    //         ->Where('r.id  = :id')
+    //         ->setParameter('id', $recruiter)
+    //         ->getQuery()
+    //         ->getResult();
+
+    //         return $qb;
+    // }
+
 }
